@@ -1,0 +1,166 @@
+/* ==========================================================
+   LicoFast · Hoja de estilos v2
+   Tema oscuro-ambar, con color de acento distinto por rol
+   ========================================================== */
+:root{
+    --acento:#d97706;
+    --acento-suave:#fef3c7;
+    --acento-oscuro:#92400e;
+    --fondo:#f4f1ea;
+    --panel:#ffffff;
+    --tinta:#20180f;
+    --tinta-suave:#6b6257;
+    --borde:#e6dfd2;
+    --radio:12px;
+}
+body.rol-administrador{ --acento:#b45309; --acento-suave:#fef3c7; --acento-oscuro:#78350f; }
+body.rol-cajero      { --acento:#0f766e; --acento-suave:#ccfbf1; --acento-oscuro:#134e4a; }
+body.rol-cliente     { --acento:#b91c1c; --acento-suave:#fee2e2; --acento-oscuro:#7f1d1d; }
+body.rol-repartidor  { --acento:#1d4ed8; --acento-suave:#dbeafe; --acento-oscuro:#1e3a8a; }
+
+*{ box-sizing:border-box; }
+
+body{
+    margin:0;
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--fondo);
+    color:var(--tinta);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ---------- Barra superior ---------- */
+.top{
+    background:linear-gradient(90deg,#1c1711 0%,#2b2115 60%,var(--acento-oscuro) 100%);
+    color:#fff;
+    padding:14px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    border-bottom:3px solid var(--acento);
+}
+.top a{ color:#f5efe4; text-decoration:none; font-size:14px; padding:7px 10px; border-radius:8px; transition:.2s; }
+.top a:hover{ background:rgba(255,255,255,.12); }
+.top a.salir{ border:1px solid rgba(255,255,255,.35); }
+.top nav{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.brand{
+    font-size:22px; font-weight:800; letter-spacing:.5px;
+    display:flex; align-items:center; gap:9px; padding-left:0 !important;
+}
+.brand span{ color:var(--acento-suave); }
+.brand-dot{ width:12px; height:12px; border-radius:50%; background:var(--acento); box-shadow:0 0 0 4px rgba(255,255,255,.12); }
+.chip-rol{
+    background:var(--acento); color:#fff; font-size:12px; font-weight:700;
+    padding:6px 12px; border-radius:999px; white-space:nowrap;
+}
+.franja-rol{
+    background:var(--acento-suave);
+    color:var(--acento-oscuro);
+    text-align:center;
+    font-size:13px;
+    padding:8px 16px;
+    letter-spacing:.4px;
+    border-bottom:1px solid var(--borde);
+}
+.franja-rol span{ font-weight:800; text-transform:uppercase; }
+
+/* ---------- Estructura ---------- */
+.container{ max-width:1140px; margin:28px auto; padding:0 20px; flex:1; width:100%; }
+.hero,.card,.formbox,.tablebox{
+    background:var(--panel);
+    padding:24px;
+    border:1px solid var(--borde);
+    border-radius:var(--radio);
+    box-shadow:0 2px 0 var(--borde);
+    margin-bottom:20px;
+}
+.card h2,.formbox h2,.hero h1{ margin-top:0; }
+.card h2{
+    font-size:19px; padding-bottom:10px; margin-bottom:16px;
+    border-bottom:2px solid var(--acento-suave);
+}
+.hero{ text-align:center; background:linear-gradient(180deg,#fff, var(--acento-suave)); }
+.seccion-titulo{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+.seccion-titulo h1{ margin:0; font-size:26px; }
+
+/* ---------- Botones ---------- */
+.btn{
+    display:inline-block; background:var(--acento); color:#fff; border:0;
+    padding:10px 18px; border-radius:9px; text-decoration:none; cursor:pointer;
+    font-weight:700; font-size:14px; transition:.18s; font-family:inherit;
+}
+.btn:hover{ filter:brightness(1.08); transform:translateY(-1px); }
+.btn.secondary{ background:#fff; color:var(--tinta); border:1px solid var(--borde); }
+.btn.danger{ background:#b91c1c; }
+.btn.ok{ background:#15803d; }
+.btn.mini{ padding:5px 10px; font-size:12px; }
+
+/* ---------- Rejillas y formularios ---------- */
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(235px,1fr)); gap:18px; }
+.two{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.three{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+.formbox{ max-width:660px; margin:20px auto; }
+.field{ margin:14px 0; }
+.field label{ display:block; font-weight:700; margin-bottom:6px; font-size:14px; }
+.field input,.field select,.field textarea{
+    width:100%; padding:11px; border:1px solid #cfc7b8; border-radius:9px;
+    font-size:14px; font-family:inherit; background:#fffdf9;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+    outline:none; border-color:var(--acento); box-shadow:0 0 0 3px var(--acento-suave);
+}
+.actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+
+/* ---------- Avisos ---------- */
+.alert{ padding:13px 16px; border-radius:10px; margin-bottom:16px; font-weight:600; border-left:6px solid; }
+.ok{ background:#dcfce7; color:#14532d; border-color:#16a34a; }
+.err{ background:#fee2e2; color:#7f1d1d; border-color:#dc2626; }
+.small{ font-size:13px; color:var(--tinta-suave); }
+
+/* ---------- Tarjetas de estadistica ---------- */
+.stat{ background:var(--panel); border:1px solid var(--borde); border-left:6px solid var(--acento); border-radius:var(--radio); padding:16px 18px; }
+.stat .n{ font-size:28px; font-weight:800; color:var(--acento-oscuro); }
+.stat .t{ font-size:13px; color:var(--tinta-suave); text-transform:uppercase; letter-spacing:.5px; }
+
+/* ---------- Productos ---------- */
+.product{ display:flex; flex-direction:column; }
+.product .emoji{ font-size:46px; text-align:center; background:var(--acento-suave); border-radius:10px; padding:14px 0; margin-bottom:10px; }
+.price{ font-size:22px; font-weight:800; color:var(--acento-oscuro); }
+.product form{ margin-top:auto; display:flex; gap:8px; }
+.product form input{ width:80px; padding:9px; border:1px solid #cfc7b8; border-radius:9px; }
+
+/* ---------- Tablas ---------- */
+.table{ width:100%; border-collapse:collapse; font-size:14px; }
+.table th,.table td{ padding:11px 12px; border-bottom:1px solid var(--borde); text-align:left; vertical-align:middle; }
+.table th{ background:#fbf8f2; font-weight:800; color:var(--acento-oscuro); text-transform:uppercase; font-size:12px; letter-spacing:.5px; }
+.table tr:hover td{ background:#fdfbf7; }
+.tabla-scroll{ overflow-x:auto; }
+
+/* ---------- Insignias de estado ---------- */
+.badge{ display:inline-block; padding:5px 11px; border-radius:999px; background:#eee7d9; font-size:12px; font-weight:700; }
+.badge.pendiente{ background:#fef3c7; color:#92400e; }
+.badge.en_camino{ background:#dbeafe; color:#1e3a8a; }
+.badge.entregada,.badge.pagada,.badge.pagado{ background:#dcfce7; color:#14532d; }
+.badge.no_entregado,.badge.anulado{ background:#fee2e2; color:#7f1d1d; }
+.badge.rol{ background:var(--acento-suave); color:var(--acento-oscuro); }
+.badge.inactivo{ background:#fee2e2; color:#991b1b; }
+
+/* ---------- Bloque de entrega del repartidor ---------- */
+.opciones-entrega{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px; }
+.opcion{ border:2px dashed var(--borde); border-radius:var(--radio); padding:18px; text-align:center; }
+.opcion.si{ border-color:#16a34a; background:#f0fdf4; }
+.opcion.no{ border-color:#dc2626; background:#fef2f2; }
+.opcion h3{ margin:0 0 8px; }
+
+footer{
+    text-align:center; padding:22px 20px; color:#efe6d5; font-size:13px;
+    background:#1c1711; margin-top:auto; border-top:3px solid var(--acento);
+}
+
+@media (max-width:820px){
+    .two,.opciones-entrega{ grid-template-columns:1fr; }
+    .top{ flex-direction:column; text-align:center; }
+    .top nav{ justify-content:center; }
+}
