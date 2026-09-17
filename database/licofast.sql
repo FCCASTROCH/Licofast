@@ -1,7 +1,7 @@
--- =====================================================================
+
 -- LicoFast · Base de datos completa
 -- Roles: administrador, cajero, cliente, repartidor (delivery)
--- =====================================================================
+
 CREATE DATABASE IF NOT EXISTS licofast CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE licofast;
 
